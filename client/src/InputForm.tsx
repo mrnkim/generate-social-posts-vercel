@@ -1,8 +1,8 @@
 import React, { useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { keys } from "./common/keys";
+import { keys } from "./keys";
 import "./InputForm.css";
-import { Video } from "./common/types";
+import { Video } from "./types";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
@@ -10,7 +10,7 @@ import { faXTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faBlog } from '@fortawesome/free-solid-svg-icons';
 import { faCommentDots } from '@fortawesome/free-solid-svg-icons';
 
-const WarningIcon:string = require("./common/Warning.svg").default;
+const WarningIcon:string = require("./Warning.svg").default;
 interface InputFormProps {
   video: Video;
   setIsSubmitted: (value: boolean) => void;

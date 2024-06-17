@@ -1,13 +1,13 @@
 import React from 'react';
 import "./VideoFileUploadForm.css";
 import { useState, useRef, Suspense } from "react";
-import LoadingSpinner from "./common/LoadingSpinner";
+import LoadingSpinner from "./LoadingSpinner";
 import axios from "axios";
 import { useQueryClient } from "@tanstack/react-query";
 import { Task } from "./Task";
-import { ErrorBoundary } from "./common/ErrorBoundary";
-import apiConfig from "./common/apiConfig";
-import { keys } from "./common/keys";
+import { ErrorBoundary } from "./ErrorBoundary";
+import apiConfig from "./apiConfig";
+import { keys } from "./keys";
 
 /** Receive user's video file, submit it to API, and show task status
  *

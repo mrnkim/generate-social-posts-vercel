@@ -1,10 +1,8 @@
 import axios from "axios";
 
-const SERVER_BASE_URL = window.location.hostname?.includes("replit")
-  ? new URL(`https://${window.location.hostname}:3000`)
-  : new URL(
-      `${process.env.REACT_APP_SERVER_URL}:${process.env.REACT_APP_PORT_NUMBER}`
-    );
+const SERVER_BASE_URL = new URL(
+  "http://localhost:4001"
+);
 
 const apiConfig = {
   PAGE_LIMIT: 1,
@@ -16,5 +14,7 @@ const apiConfig = {
   TASKS_URL: "/tasks",
   INDEX_VIDEO_URL: new URL("/index", SERVER_BASE_URL),
 };
+console.log("🚀 > apiConfig. INDEX_ID=", apiConfig. INDEX_ID)
+console.log("process.env.REACT_APP_INDEX_ID", process.env.REACT_APP_INDEX_ID)
 
 export default apiConfig;

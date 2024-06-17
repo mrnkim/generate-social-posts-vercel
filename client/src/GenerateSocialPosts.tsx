@@ -5,12 +5,12 @@ import { InputForm } from "./InputForm";
 import { VideoFileUploadForm } from "./VideoFileUploadForm";
 import { Result } from "./Result";
 import "./GenerateSocialPosts.css";
-import { useGetVideo } from "./common/apiHooks";
-import { keys } from "./common/keys";
-import LoadingSpinner from "./common/LoadingSpinner";
-import { ErrorBoundary } from "./common/ErrorBoundary";
+import { useGetVideo } from "./apiHooks";
+import { keys } from "./keys";
+import LoadingSpinner from "./LoadingSpinner";
+import { ErrorBoundary } from "./ErrorBoundary";
 
-const greenWarningIcon:string = require("./common/Warning_Green.svg").default;
+const greenWarningIcon:string = require("./Warning_Green.svg").default;
 
 /** Generate Titles and Hashtags
  *

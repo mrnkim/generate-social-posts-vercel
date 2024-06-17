@@ -1,12 +1,12 @@
 import React, { Suspense, useEffect, Dispatch, SetStateAction } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { ErrorBoundary } from "react-error-boundary";
-import { keys } from "./common/keys";
-import LoadingSpinner from "./common/LoadingSpinner";
-import { useGetTask } from "./common/apiHooks";
+import { keys } from "./keys";
+import LoadingSpinner from "./LoadingSpinner";
+import { useGetTask } from "./apiHooks";
 import "./Task.css";
 import  Video  from "./Video";
-import ErrorFallback from './common/ErrorFallback';
+import ErrorFallback from './ErrorFallback';
 
 /** Gets and shows status of a task
  *
