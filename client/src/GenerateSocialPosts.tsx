@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import  Video from "./Video";
 import { InputForm } from "./InputForm";
-import { VideoFileUploadForm } from "./VideoFileUploadForm";
 import { Result } from "./Result";
 import "./GenerateSocialPosts.css";
 import { useGetVideo } from "./apiHooks";
@@ -81,14 +80,6 @@ export const GenerateSocialPosts:React.FC<GenerateSocialPostsProps> = ({ index, 
       <h1 className="GenerateSocialPosts__appTitle">
         Generate Social Posts for Your Video
       </h1>
-      <VideoFileUploadForm
-        index={index}
-        refetchVideos={refetchVideos}
-        selectedFile={selectedFile}
-        setSelectedFile={setSelectedFile}
-        isFileUploading={isFileUploading}
-        setIsFileUploading={setIsFileUploading}
-      />
       {!video && (
         <div className="GenerateSocialPosts__uploadMessageWrapper">
           <img
