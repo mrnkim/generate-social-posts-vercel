@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import { useEffect, Suspense } from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import {keys} from "./keys";
+import { keys } from "./keys";
 import LoadingSpinner from "./LoadingSpinner";
 import { GenerateSocialPosts } from "./GenerateSocialPosts";
 import { useGetVideos } from "./apiHooks";
@@ -17,12 +17,12 @@ import ErrorFallback from "./ErrorFallback";
  */
 
 function App() {
-  const { data: videos, refetch: refetchVideos } = useGetVideos(apiConfig.INDEX_ID);
+  const { data: videos, refetch: refetchVideos, isLoading, isError, error } = useGetVideos(apiConfig.INDEX_ID);
   const queryClient = useQueryClient();
 
   useEffect(() => {
     if (apiConfig.INDEX_ID) {
-      queryClient.invalidateQueries({queryKey: [keys.VIDEOS, apiConfig.INDEX_ID]});
+      queryClient.invalidateQueries({ queryKey: [keys.VIDEOS, apiConfig.INDEX_ID] });
     }
   }, [queryClient]);
 
@@ -30,17 +30,26 @@ function App() {
     return <ErrorFallback error={new Error("Please provide index Id")} />;
   }
 
+  if (isLoading) {
+    return <LoadingSpinner />;
+  }
+
+  if (isError) {
+    return <ErrorFallback error={error} />;
+  }
+
   return (
     <ErrorBoundary>
       <Suspense fallback={<LoadingSpinner />}>
         <div className="app">
-          {!videos?.data && <ErrorFallback error={videos} />}
-          {videos?.data && (
+          {videos?.data ? (
             <GenerateSocialPosts
               index={apiConfig.INDEX_ID}
               videoId={videos.data[0]?._id || null}
               refetchVideos={refetchVideos}
             />
+          ) : (
+            <ErrorFallback error={new Error("No videos data available")} />
           )}
         </div>
       </Suspense>
