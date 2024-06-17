@@ -14,7 +14,5 @@ const apiConfig = {
   TASKS_URL: "/tasks",
   INDEX_VIDEO_URL: new URL("/index", SERVER_BASE_URL),
 };
-console.log("🚀 > apiConfig. INDEX_ID=", apiConfig. INDEX_ID)
-console.log("process.env.REACT_APP_INDEX_ID", process.env.REACT_APP_INDEX_ID)
 
 export default apiConfig;
