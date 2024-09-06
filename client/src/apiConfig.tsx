@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const SERVER_BASE_URL = new URL(
-  "https://generate-social-posts-vercel.vercel.app/"
+  "https://generate-social-posts-vercel-server.vercel.app/"
 );
 
 const apiConfig = {
