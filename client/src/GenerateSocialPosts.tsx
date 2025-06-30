@@ -32,14 +32,14 @@ export const GenerateSocialPosts:React.FC<GenerateSocialPostsProps> = ({ index, 
 
   const [prompt, setPrompt] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [showVideoTitle, setShowVideoTitle] = useState(false);
+  const [showVideoTitle, setShowVideoTitle] = useState(true);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isFileUploading, setIsFileUploading] = useState(false);
   const [platform, setPlatform] = useState("");
 
   const queryClient = useQueryClient();
 
-  const vidTitleRaw = video?.metadata?.video_title;
+  const vidTitleRaw = video?.system_metadata?.filename;
   const vidTitleClean = decodeAndCleanFilename(vidTitleRaw);
 
   /** Return clean video file name  */
@@ -69,7 +69,7 @@ export const GenerateSocialPosts:React.FC<GenerateSocialPostsProps> = ({ index, 
     fetchData();
     resetPrompt();
     setIsSubmitted(false);
-    setShowVideoTitle(false);
+    setShowVideoTitle(true);
     setSelectedFile(null);
     setIsFileUploading(false);
     setPlatform("")
